@@ -1,0 +1,1 @@
+I will also flash ocotopi on my raspberry pi, but this isn't that hard, and I don't think neceistates full instructions here

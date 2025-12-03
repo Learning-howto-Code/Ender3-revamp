@@ -8,7 +8,12 @@ My Ender 3 is feeling quite outdated, epsecalily with everyone having an A1 mini
 
   ## CAD
 For the CAD I made an enlcosure for both of the LED sirps, with a 3d printed diffuser, and an enclsoure for the Raspberry pi, camera and a spot to hide the wires. The pink assembly will mount on the top of the 8020 extrusion like the filamnet spool holder, and the green assembly will mount to the back side of the same extrusion(shown as a blue box for reference.)
-  <img width="1561" height="1074" alt="Screen Shot 2025-11-29 at 8 28 56 AM" src="https://github.com/user-attachments/assets/8fa96cf8-d9c4-4857-946a-e8cf0a29db62" />
+
+<img width="1908" height="1172" alt="Screen Shot 2025-12-02 at 5 02 38 PM" src="https://github.com/user-attachments/assets/80a55b2e-6016-4a32-98c8-13990f0ef013" />
+<img width="1908" height="1172" alt="Screen Shot 2025-12-02 at 5 47 21 PM" src="https://github.com/user-attachments/assets/22a67e2a-1419-4740-8808-bf1fc825e233" />
+<img width="1908" height="1172" alt="Screen Shot 2025-12-02 at 5 47 31 PM" src="https://github.com/user-attachments/assets/7b2603b4-702d-40e1-bf23-0c4a2bb9f2e1" />
+<img width="1908" height="1172" alt="Screen Shot 2025-12-02 at 5 47 51 PM" src="https://github.com/user-attachments/assets/7e49f6a4-939e-4c34-bb40-dbe90f6bf157" />
+
 
 ## BOM
 | Item                     | Cost   | Link                                                                                                                                                                                                                                                                | Notes                                       |

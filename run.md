@@ -1,0 +1,1 @@
+sudo -E env PATH=$PATH /home/jake/light/venv/bin/python test.py

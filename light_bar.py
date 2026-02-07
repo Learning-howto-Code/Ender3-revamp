@@ -32,9 +32,7 @@ while True: #runs everything in a loop
         progress = 0
     else:
         progress = int(progress)
-        progress = 30 / progress 
-        progress =progress *100
-        progress = int((progress / 100) *30)
+        progress = int((progress / 100) * 30)
 
     if state == "Operational":
         task_light()
@@ -42,6 +40,8 @@ while True: #runs everything in a loop
             pixels[i] = (0,200,0)
             pixels.show()   
             time.sleep(0.05)#adjust to change chasing speed
+    if state == "Offline":
+        task_light()
     elif state == "Printing":
         task_light()
         for i in range(progress):
@@ -62,8 +62,8 @@ while True: #runs everything in a loop
             pixels.show()
 
     #turns off lights at night
-    time = datetime.datetime.now().time()
-    if time.hour >= 22 or time.hour <= 7:
+    current_time = datetime.datetime.now().time()
+    if current_time.hour >= 22 or current_time.hour < 7:
         for i in range(30):
             pixels[i] = (0,0,0)
             pixels.show()

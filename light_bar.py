@@ -42,12 +42,12 @@ while True: #runs everything in a loop
             pixels[i] = (0,200,0)
             pixels.show()   
             time.sleep(0.05)#adjust to change chasing speed
-    if state == "Printing":
+    elif state == "Printing":
         task_light()
         for i in range(progress):
             pixels[i] = (0,200,0)
             pixels.show() 
-    if state == "Error":
+    elif state == "Error":
         task_light()
         for i in range(15):
             pixels[i] = (255,0,0)

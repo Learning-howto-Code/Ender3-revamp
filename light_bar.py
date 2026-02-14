@@ -6,11 +6,17 @@ import neopixel
 import time
 import datetime
 
-pixels = neopixel.NeoPixel(
+bar = neopixel.NeoPixel(
     board.D18,
-     30,
+     15,
      brightness=1.0,
      auto_write=False
+)
+light = neopixel.NeoPixel(
+    board.D19,
+    15,
+    brightness=1.0,
+    auto_write=False
 )
 
 URL = "192.168.4.206"
@@ -18,8 +24,8 @@ KEY = os.getenv("KEY")
 while True: #runs everything in a loop
     def task_light(): #sets second 1/2 of lights to white
         for i in range(15,30):
-            pixels[i] = (255,255,255)
-            pixels.show()
+            light[i] = (255,255,255)
+            light.show()
 
 
     r = requests.get(f"http://{URL}/api/job", headers={"X-Api-Key": KEY})
@@ -37,36 +43,36 @@ while True: #runs everything in a loop
     if state == "Operational":
         task_light()
         for i in range(15):
-            pixels[i] = (0,200,0)
-            pixels.show()   
+            bar[i] = (0,200,0)
+            bar.show()   
             time.sleep(0.05)#adjust to change chasing speed
     if state == "Offline":
         task_light()
     elif state == "Printing":
         task_light()
         for i in range(progress):
-            pixels[i] = (0,200,0)
-            pixels.show() 
+            bar[i] = (0,200,0)
+            bar.show() 
     elif state == "Error":
         task_light()
         for i in range(15):
-            pixels[i] = (255,0,0)
-            pixels.show()   
+            bar[i] = (255,0,0)
+            bar.show()   
             time.sleep(0.5)
-            pixels[i] = (0,0,0)
-            pixels.show()
+            bar[i] = (0,0,0)
+            bar.show()
             time.sleep(0.5)  
     else:
         for i in range(30):
-            pixels[i] = (0,0,0)
-            pixels.show()
+            bar[i] = (0,0,0)
+            bar.show()
 
     #turns off lights at night
     current_time = datetime.datetime.now().time()
     if current_time.hour >= 22 or current_time.hour < 7:
         for i in range(30):
-            pixels[i] = (0,0,0)
-            pixels.show()
+            bar[i] = (0,0,0)
+            bar.show()
     print(state)
     data = r.json()
     print(data)

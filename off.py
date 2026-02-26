@@ -11,7 +11,7 @@ pixels = neopixel.NeoPixel(
     auto_write=False
 )
 pixels2 = neopixel.NeoPixel(
-    board.D18,
+    board.D19,
     10,
     brightness=1.0,
     auto_write=False

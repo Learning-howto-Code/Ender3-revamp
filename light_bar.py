@@ -42,7 +42,7 @@ while True: #runs everything in a loop
             time.sleep(0.05)#adjust to change chasing speed
     if state == "Offline":
         task_light()
-    elif state == "Printing":
+    elif state == "Printing"or "Printing from SD":
         task_light()
         for i in range(progress):
             pixels[i] = (0,200,0)

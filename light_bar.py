@@ -13,11 +13,11 @@ pixels = neopixel.NeoPixel(
      auto_write=False
 )
 
-URL = "192.168.4.206"
+URL = "192.168.4.223"
 KEY = os.getenv("KEY")
 while True: #runs everything in a loop
     def task_light(): #sets second 1/2 of lights to white
-        for i in range(15,30):
+        for i in range(10,20):
             pixels[i] = (255,255,255)
             pixels.show()
 
@@ -32,11 +32,11 @@ while True: #runs everything in a loop
         progress = 0
     else:
         progress = int(progress)
-        progress = int((progress / 100) * 30)
+        progress = int((progress / 100) * 20)
 
     if state == "Operational":
         task_light()
-        for i in range(15):
+        for i in range(10):
             pixels[i] = (0,200,0)
             pixels.show()   
             time.sleep(0.05)#adjust to change chasing speed
@@ -49,7 +49,7 @@ while True: #runs everything in a loop
             pixels.show() 
     elif state == "Error":
         task_light()
-        for i in range(15):
+        for i in range(10):
             pixels[i] = (255,0,0)
             pixels.show()   
             time.sleep(0.5)
@@ -57,14 +57,14 @@ while True: #runs everything in a loop
             pixels.show()
             time.sleep(0.5)  
     else:
-        for i in range(30):
+        for i in range(20):
             pixels[i] = (0,0,0)
             pixels.show()
 
     #turns off lights at night
     current_time = datetime.datetime.now().time()
     if current_time.hour >= 22 or current_time.hour < 7:
-        for i in range(30):
+        for i in range(20):
             pixels[i] = (0,0,0)
             pixels.show()
     print(state)

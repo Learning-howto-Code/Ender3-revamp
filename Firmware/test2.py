@@ -12,7 +12,7 @@ import neopixel
 # NeoPixels must be connected to D10, D12, D18 or D21 to work.
 
 # The number of NeoPixels
-num_pixels = 10
+num_pixels = 20
 
 # The order of the pixel colors - RGB or GRB. Some NeoPixels have red and green reversed!
 # For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
@@ -21,10 +21,6 @@ ORDER = neopixel.GRB
 pixels = neopixel.NeoPixel(
     board.D18, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER
 )
-pixels2 = neopixel.NeoPixel(
-    board.D19, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER
-)
-strips = (pixels, pixels2)
 
 
 def wheel(pos):
@@ -54,39 +50,31 @@ def rainbow_cycle(wait):
         for i in range(num_pixels):
             pixel_index = (i * 256 // num_pixels) + j
             color = wheel(pixel_index & 255)
-            for strip in strips:
-                strip[i] = color
-        for strip in strips:
-            strip.show()
+            pixels[i] = color
+        pixels.show()
         time.sleep(wait)
 
 
 while True:
     # Comment this line out if you have RGBW/GRBW NeoPixels
-    for strip in strips:
-        strip.fill((255, 0, 0))
+    pixels.fill((255, 0, 0))
     # Uncomment this line if you have RGBW/GRBW NeoPixels
     # pixels.fill((255, 0, 0, 0))
-    for strip in strips:
-        strip.show()
+    pixels.show()
     time.sleep(1)
 
     # Comment this line out if you have RGBW/GRBW NeoPixels
-    for strip in strips:
-        strip.fill((0, 255, 0))
+    pixels.fill((0, 255, 0))
     # Uncomment this line if you have RGBW/GRBW NeoPixels
     # pixels.fill((0, 255, 0, 0))
-    for strip in strips:
-        strip.show()
+    pixels.show()
     time.sleep(1)
 
     # Comment this line out if you have RGBW/GRBW NeoPixels
-    for strip in strips:
-        strip.fill((0, 0, 255))
+    pixels.fill((0, 0, 255))
     # Uncomment this line if you have RGBW/GRBW NeoPixels
     # pixels.fill((0, 0, 255, 0))
-    for strip in strips:
-        strip.show()
+    pixels.show()
     time.sleep(1)
 
     rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
